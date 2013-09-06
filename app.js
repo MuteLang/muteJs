@@ -216,12 +216,12 @@ function processMute() {
     }
 
     // From http://stackoverflow.com/questions/4959975/generate-random-value-between-two-numbers-in-javascript
+    // TODO: Fix random problem, http://jsfiddle.net/2XhW4/ works but this not
     function randomFromInterval(from, to)
     {
-        console.log(from);
-        console.log(to);
-        console.log(Math.floor(Math.random()*((to - from) + 1) + from));
-        return Math.floor(Math.random()*(to-from+1)+from);
+        var rand = Math.floor(Math.random()*(to - from + 1) + from);
+        console.log(rand); // Not the same as link above (why?)
+        return Math.floor(Math.random()*(to - from + 1) + from);
     }
 
 }
