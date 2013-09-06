@@ -206,7 +206,7 @@ function processMute() {
                 if (program[key]["attr"][index]) {
                     return program[key] = {"attr": index};
                 }
-            } else if (program[dotvalue] = {"attr": 0}) {
+            } else if (program[dotvalue] === {"attr": 0}) {
                 return program[dotvalue] = {"attr": 0}
             }
             return dotvalue;
@@ -216,8 +216,11 @@ function processMute() {
     }
 
     // From http://stackoverflow.com/questions/4959975/generate-random-value-between-two-numbers-in-javascript
-    function randomFromInterval(from,to)
+    function randomFromInterval(from, to)
     {
+        console.log(from);
+        console.log(to);
+        console.log(Math.floor(Math.random()*((to - from) + 1) + from));
         return Math.floor(Math.random()*(to-from+1)+from);
     }
 
