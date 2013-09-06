@@ -15,13 +15,32 @@ function processMute() {
         }
     }
 
+    for (var j = 0; j < operations.length; j++) {
+        console.log("Line: " + j);
+        var value = operations[j];
+        var pattern = /[^a-z0-9]/i;
+        id = value.split(pattern);
+        id = id[0];
+        update(value);
+        interpreter(id);
+    }
 
     function resolve(run) {
         var varRegex = /[^a-z0-9.$]/i;
         var operRegex = /[a-z0-9.$]/i;
 
-        run["cond_variables"] = run["cond"].split(varRegex);
-        run["cond_operators"] = run["cond"].split(operRegex);
+        var varTemp;
+        var operTemp;
+        if (run["cond"]) {
+            varTemp = run["cond"].split(varRegex);
+            operTemp = run["cond"].split(operRegex);
+        } else {
+            varTemp = "";
+            operTemp = "";
+        }
+
+        run["cond_variables"] = varTemp;
+        run["cond_operators"] = operTemp;
 
         var first = renderValue(run["cond_variables"][0]);
         var second = renderValue(run["cond_variables"][1]);
@@ -62,7 +81,7 @@ function processMute() {
             replacements[i] = renderValue(replacements[i]);
         }
 
-        var result = strig.replace(Array("@1","@2","@3"), replacements);
+        var result = strig.replace(["@1","@2","@3"], replacements);
         return result;
     }
 
@@ -76,21 +95,12 @@ function processMute() {
     }
 
     function interpreter(id) {
-        if (resolve(program[id]) && (program[id] = "oper")) {
+        if (resolve(program[id]) && (program[id] === "oper")) {
             operate(program[id] = "oper");
         }
     }
 
-    for (var j = 0; j < operations.length; j++) {
-        console.log("Line: " + j);
-        var value = operations[j];
-        var pattern = /[^a-z0-9]/i;
-        id = value.split(pattern);
-        id = id[0];
-        update(value);
-        interpreter(id);
-    }
-    
+    // Updater
     function update(value) {
         var pattern = /[^a-z0-9]/i;
         id = value.split(pattern);
