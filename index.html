@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>mute to js</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+    <script src="bootstrap/bootstrap/js/bootstrap.min.js"></script>
+    <script src="jquery.js"></script>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+        #outputArea {
+            border: dashed thin #000000;
+        }
+    </style>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <label>Write <a href="http://wiki.xxiivv.com/mute" target="_blank">mute</a> code here:</label>
+            <textarea name="inputArea" id="inputArea" rows="10" class="span12" ></textarea>
+        </div>
+        <div>
+            <input type="button" class="btn btn-large btn-inverse" value="Process" onclick="processMute()">
+        </div>
+        <div>
+            <span id="outputArea"></span>
+        </div>
+    </div>
+</body>
+</html>
