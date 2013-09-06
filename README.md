@@ -1,7 +1,7 @@
 muteJs
 ======
 
-JavaScript version of the [mute](http://wiki.xxiivv.com/mute) [interpreter/compiler](https://github.com/aliceffekt/mute/) originally written by [Aliceffekt](https://github.com/aliceffekt) in PHP.
+JavaScript version of the [mute](http://wiki.xxiivv.com/mute) [interpreter/compiler](https://github.com/aliceffekt/mute/) originally written by [Aliceffekt](https://github.com/aliceffekt) in PHP.  
 This is still in an early state and far from being finished!
 
 ## Instructions
